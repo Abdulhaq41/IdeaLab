@@ -19,7 +19,8 @@
     "format": "prettier --write client server shared tests scripts/*.ts scripts/*.mjs docs/*.md README.md *.ts *.json *.yaml",
     "browser:install": "playwright install chromium",
     "test:acceptance": "node scripts/acceptance.mjs",
-    "bot:connect": "node --use-env-proxy --import tsx scripts/connect-bot.ts"
+    "bot:connect": "node --use-env-proxy --import tsx scripts/connect-bot.ts",
+    "telegram:demo": "node --use-env-proxy --import tsx scripts/telegram-demo.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "7.10.1",
