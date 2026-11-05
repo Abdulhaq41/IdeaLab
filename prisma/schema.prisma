@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "client"
+}
+datasource db {
+  provider = "postgresql"
+}
+model User {
+  id String @id
+  createdAt DateTime @default(now())
+  business Business?
+}
+model Business {
+  id String @id
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+  version Int @default(0)
+  snapshot Json
+  updatedAt DateTime @updatedAt
+}
+model Payment {
+  chargeId String @id
+  userId String
+  orderId String @unique
+  amount Int
+  payload Json
+}
+model AdminAuditLog {
+  id String @id
+  adminId String
+  action String
+  reason String
+  targetId String
+  at DateTime @default(now())
+  payload Json
+}
+model CurrencyLedger {
+  id String @id
+  userId String
+  amount Int
+  balance Int
+  reason String
+  at DateTime
+  @@index([userId, at])
+}
+model Order {
+  id String @id
+  userId String
+  productId String
+  amount Int
+  status String
+  payload Json
+  @@index([userId])
+}
+model Entitlement {
+  id String @id
+  userId String
+  source String
+  productId String
+  revoked Boolean @default(false)
+  payload Json
+  @@index([userId])
+}
+model Shift {
+  id String @id
+  userId String
+  end DateTime
+  finalized Boolean
+  payload Json
+  @@index([finalized, end])
+}
+model BusinessLayout {
+  id String @id
+  userId String
+  payload Json
+}
+model FurnitureInstance {
+  id String @id
+  userId String
+  payload Json
+}
+model Employee {
+  id String @id
+  payload Json
+}
+model Employment {
+  id String @id
+  userId String
+  payload Json
+}
+model Inventory {
+  id String @id
+  userId String @unique
+  payload Json
+}
+model ShiftEvent {
+  id String @id
+  userId String
+  payload Json
+}
+model Decision {
+  id String @id
+  userId String
+  payload Json
+}
+model StoryProgress {
+  id String @id
+  userId String @unique
+  payload Json
+}
+model Achievement {
+  id String @id
+  userId String
+  payload Json
+}
+model Product {
+  id String @id
+  payload Json
+}
+model NotificationPreference {
+  id String @id
+  userId String @unique
+  payload Json
+}

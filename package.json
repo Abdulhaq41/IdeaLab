@@ -1,0 +1,51 @@
+{
+  "name": "idealab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --import tsx server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "start": "node --import tsx server/index.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:economy": "node --import tsx scripts/simulate.ts",
+    "db:generate": "node scripts/generate-client.mjs",
+    "db:deploy": "npm run db:apply",
+    "bot": "node --import tsx server/bot-runner.ts",
+    "test:visual": "node scripts/visual.mjs",
+    "db:apply": "node --import tsx scripts/db-apply.ts",
+    "db:generate:native": "prisma generate",
+    "bot:configure": "node --import tsx scripts/configure-bot.ts",
+    "format": "prettier --write client server shared tests scripts/*.ts scripts/*.mjs docs/*.md README.md *.ts *.json *.yaml",
+    "browser:install": "playwright install chromium",
+    "test:acceptance": "node scripts/acceptance.mjs",
+    "bot:connect": "node --use-env-proxy --import tsx scripts/connect-bot.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "express": "5.1.0",
+    "grammy": "1.38.3",
+    "pg": "8.16.3",
+    "pixi.js": "8.14.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.17",
+    "@types/express": "5.0.5",
+    "@types/node": "24.10.0",
+    "@types/pg": "8.15.6",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "5.1.0",
+    "playwright": "^1.56.1",
+    "prettier": "^3.6.2",
+    "prisma": "7.10.1",
+    "tailwindcss": "4.1.17",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  }
+}
