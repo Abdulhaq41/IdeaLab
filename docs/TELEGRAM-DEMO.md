@@ -1,5 +1,7 @@
 # Посмотреть IdeaLab в Telegram с компьютера Windows
 
+Можно [скачать готовый файл запуска](https://raw.githubusercontent.com/Abdulhaq41/IdeaLab/main/downloads/IdeaLab-Telegram.zip), распаковать его содержимое в существующую папку IdeaLab рядом с package.json и открыть start-telegram.cmd. Он использует тот же проверенный скрипт, а при отсутствии Cloudflare Tunnel предложит установить официальный пакет через winget.
+
 Собственный домен и PostgreSQL для этого теста не нужны. Компьютер с игрой должен быть включён и иметь доступ к Telegram API и Cloudflare. Это обычный Telegram-бот с явно обозначенным browser demo, **не Telegram Stars test environment и не production**. Все покупки имитируются, настоящие pre-checkout-запросы отклоняются.
 
 1. Установи официальный клиент Cloudflare Tunnel через Windows Package Manager:
